@@ -9,3 +9,29 @@ Athlemetric is a sport database application with analytic, predictive functional
 - Open, extensible framework for building predictive model.
 
 Professional sport traders or bettors now have edge over bookmakers due to information and tools available for decision-making that result in higher profit earnings.
+
+Proposed sports for trading include but not limited to:
+
+- Badminton
+- Baseball
+- Basketball
+- Boxing
+- Cricket
+- Cycling
+- Darts
+- Football (American)
+- Formula One
+- Futsal
+- Golf
+- Handball
+- Hockey
+- Horse Racing
+- Ice Hockey
+- Motorsport
+- Rugby
+- Snooker
+- Soccer
+- Tennis
+- Volleyball
+
+Note that current development effort focuses on Soccer only.
