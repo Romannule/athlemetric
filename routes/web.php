@@ -13,4 +13,6 @@
 
 Route::get('/', 'DashboardController@index');
 
+Route::resource('associations', 'AssociationsController');
+
 Auth::routes();
