@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Association;
 
 class AssociationsController extends Controller
 {
@@ -14,8 +13,7 @@ class AssociationsController extends Controller
      */
     public function index()
     {
-        $associations = Association::all();
-        return view('associations.index')->with('associations', $associations);;
+        return view('associations.index');
     }
 
     /**

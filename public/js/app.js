@@ -975,7 +975,9 @@ window.Vue = __webpack_require__(39);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', __webpack_require__(36));
+var axios = __webpack_require__(11);
+
+Vue.component('associations', __webpack_require__(51));
 
 var app = new Vue({
   el: '#app'
@@ -1829,35 +1831,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 29 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {
-        console.log('Component mounted.');
-    }
-});
-
-/***/ }),
+/* 29 */,
 /* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -32033,40 +32007,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 36 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Component = __webpack_require__(37)(
-  /* script */
-  __webpack_require__(29),
-  /* template */
-  __webpack_require__(38),
-  /* scopeId */
-  null,
-  /* cssModules */
-  null
-)
-Component.options.__file = "C:\\xampp\\htdocs\\athlemetric\\resources\\assets\\js\\components\\Example.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] Example.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-1ce95034", Component.options)
-  } else {
-    hotAPI.reload("data-v-1ce95034", Component.options)
-  }
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
+/* 36 */,
 /* 37 */
 /***/ (function(module, exports) {
 
@@ -32124,35 +32065,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 38 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _vm._m(0)
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "container"
-  }, [_c('div', {
-    staticClass: "row"
-  }, [_c('div', {
-    staticClass: "col-md-8 col-md-offset-2"
-  }, [_c('div', {
-    staticClass: "panel panel-default"
-  }, [_c('div', {
-    staticClass: "panel-heading"
-  }, [_vm._v("Example Component")]), _vm._v(" "), _c('div', {
-    staticClass: "panel-body"
-  }, [_vm._v("\n                    I'm an example component!\n                ")])])])])])
-}]}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-1ce95034", module.exports)
-  }
-}
-
-/***/ }),
+/* 38 */,
 /* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -43153,6 +43066,275 @@ module.exports = function(module) {
 __webpack_require__(9);
 module.exports = __webpack_require__(10);
 
+
+/***/ }),
+/* 42 */,
+/* 43 */,
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */,
+/* 48 */,
+/* 49 */,
+/* 50 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            edit: false,
+            list: [],
+            association: {
+                id: '',
+                name: '',
+                code: ''
+            }
+        };
+    },
+    mounted: function mounted() {
+        this.fetchAssociationList();
+    },
+    methods: {
+        fetchAssociationList: function fetchAssociationList() {
+            var _this = this;
+
+            axios.get('api/associations').then(function (response) {
+                console.log(response.data);
+                _this.list = response.data;
+            }).catch(function (error) {
+                console.log(error);
+            });
+        },
+        createAssociation: function createAssociation() {
+            var self = this;
+            var params = Object.assign({}, self.association);
+            axios.post('api/association/store', params).then(function () {
+                self.association.name = '';
+                self.association.code = '';
+                self.edit = false;
+                self.fetchAssociationList();
+            }).catch(function (error) {
+                console.log(error);
+            });
+        },
+        showAssociation: function showAssociation(id) {
+            var self = this;
+            axios.get('api/association/' + id).then(function (response) {
+                self.association.id = response.data.id;
+                self.association.name = response.data.name;
+                self.association.code = response.data.code;
+            });
+            self.edit = true;
+        },
+        updateAssociation: function updateAssociation(id) {
+            var self = this;
+            var params = Object.assign({}, self.association);
+            axios.patch('api/association/' + id, params).then(function () {
+                self.association.name = '';
+                self.association.code = '';
+                self.edit = false;
+                self.fetchAssociationList();
+            }).catch(function (error) {
+                console.log(error);
+            });
+        },
+        deleteAssociation: function deleteAssociation(id) {
+            var self = this;
+            axios.delete('api/association/' + id).then(function (response) {
+                self.fetchAssociationList();
+            }).catch(function (error) {
+                console.log(error);
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 51 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(37)(
+  /* script */
+  __webpack_require__(50),
+  /* template */
+  __webpack_require__(52),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "C:\\xampp\\htdocs\\athlemetric\\resources\\assets\\js\\components\\Associations.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] Associations.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-0901abb8", Component.options)
+  } else {
+    hotAPI.reload("data-v-0901abb8", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 52 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('h1', [_vm._v("Associations")]), _vm._v(" "), _c('form', {
+    attrs: {
+      "action": "#"
+    },
+    on: {
+      "submit": function($event) {
+        $event.preventDefault();
+        _vm.edit ? _vm.updateAssociation(_vm.association.id) : _vm.createAssociation()
+      }
+    }
+  }, [_c('div', {
+    staticClass: "form-group"
+  }, [_c('label', [_vm._v("Name")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.association.name),
+      expression: "association.name"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "name": "name",
+      "placeholder": "ex. International Federation of Association Football"
+    },
+    domProps: {
+      "value": (_vm.association.name)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.$set(_vm.association, "name", $event.target.value)
+      }
+    }
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('label', [_vm._v("Code")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.association.code),
+      expression: "association.code"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "name": "code",
+      "placeholder": "ex. FIFA, CAF"
+    },
+    domProps: {
+      "value": (_vm.association.code)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.$set(_vm.association, "code", $event.target.value)
+      }
+    }
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('button', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (!_vm.edit),
+      expression: "!edit"
+    }],
+    staticClass: "btn btn-primary",
+    staticStyle: {
+      "width": "100%"
+    },
+    attrs: {
+      "type": "submit"
+    }
+  }, [_vm._v("Create")]), _vm._v(" "), _c('button', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.edit),
+      expression: "edit"
+    }],
+    staticClass: "btn btn-primary",
+    staticStyle: {
+      "width": "100%"
+    },
+    attrs: {
+      "type": "submit"
+    }
+  }, [_vm._v("Update")])])]), _vm._v(" "), _c('ul', {
+    staticClass: "list-group"
+  }, _vm._l((_vm.list), function(association) {
+    return _c('li', {
+      staticClass: "list-group-item"
+    }, [_vm._v("\n            " + _vm._s(association.name) + " (" + _vm._s(association.code) + ")\n            "), _c('button', {
+      staticClass: "btn btn-default btn-xs",
+      on: {
+        "click": function($event) {
+          _vm.showAssociation(association.id)
+        }
+      }
+    }, [_vm._v("Edit")]), _vm._v(" "), _c('button', {
+      staticClass: "btn btn-danger btn-xs",
+      on: {
+        "click": function($event) {
+          _vm.deleteAssociation(association.id)
+        }
+      }
+    }, [_vm._v("Delete")])])
+  }))])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-0901abb8", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
