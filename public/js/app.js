@@ -43167,7 +43167,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 console.log(error);
             });
         },
-        clearAssociationFields: function clearAssociationFields() {
+        clearAssociation: function clearAssociation() {
             var self = this;
             self.association.name = '';
             self.association.code = '';
@@ -43198,9 +43198,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var self = this;
             var params = Object.assign({}, self.association);
             axios.patch('api/association/' + id, params).then(function () {
-                self.association.name = '';
-                self.association.code = '';
-                self.edit = false;
+                self.edit = true;
                 self.fetchAssociationList();
             }).catch(function (error) {
                 console.log(error);
@@ -43264,7 +43262,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     },
     on: {
       "click": function($event) {
-        _vm.clearAssociationFields()
+        _vm.clearAssociation()
       }
     }
   }, [_vm._v("\n        Create\n    ")]), _vm._v(" "), _c('hr'), _vm._v(" "), _c('ul', {

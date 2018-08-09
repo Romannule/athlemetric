@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>Associations</h1>
-        <button @click="clearAssociationFields()" class="btn btn-primary" data-toggle="modal" data-target="#association">
+        <button @click="clearAssociation()" class="btn btn-primary" data-toggle="modal" data-target="#association">
             Create
         </button>
         <hr>
@@ -83,7 +83,7 @@
                         console.log(error);
                     });
             },
-            clearAssociationFields: function() {
+            clearAssociation: function() {
                 let self = this;
                 self.association.name = '';
                 self.association.code = '';
@@ -118,9 +118,7 @@
                 let params = Object.assign({}, self.association);
                 axios.patch('api/association/' + id, params)
                     .then(function() {
-                        self.association.name = '';
-                        self.association.code = '';
-                        self.edit = false;
+                        self.edit = true;
                         self.fetchAssociationList();
                     })
                     .catch(function(error) {
