@@ -7,7 +7,7 @@
         <hr>
         <ul class="list-group">
             <li class="list-group-item" v-for="association in list">
-                {{ association.name }} ({{ association.code }})
+                <a href="#">{{ association.name }} ({{ association.code }})</a>
                 <div class="btn-group pull-right">
                     <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="caret"></span>
@@ -32,7 +32,8 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Create Association</h4>
+                        <h4 v-show="!edit" class="modal-title" id="associationLabel">Create Association</h4>
+                        <h4 v-show="edit" class="modal-title" id="associationLabel">Edit Association</h4>
                     </div>
                     <div class="modal-body">
                         <form action="#" @submit.prevent="edit ? updateAssociation(association.id) : createAssociation()">
@@ -45,7 +46,7 @@
                                 <input v-model="association.code" type="text" name="code" class="form-control" placeholder="ex. FIFA, CAF">
                             </div>
                             <div class="form-group">
-                                <button v-show="!edit" type="submit" class="btn btn-primary" style="width:100%">Create</button>
+                                <button v-show="!edit" type="submit" class="btn btn-primary" style="width:100%">Save</button>
                                 <button v-show="edit" type="submit" class="btn btn-primary" style="width:100%">Update</button>
                             </div>
                         </form>

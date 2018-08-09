@@ -43139,6 +43139,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -43271,7 +43272,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, _vm._l((_vm.list), function(association) {
     return _c('li', {
       staticClass: "list-group-item"
-    }, [_vm._v("\n            " + _vm._s(association.name) + " (" + _vm._s(association.code) + ")\n            "), _c('div', {
+    }, [_c('a', {
+      attrs: {
+        "href": "#"
+      }
+    }, [_vm._v(_vm._s(association.name) + " (" + _vm._s(association.code) + ")")]), _vm._v(" "), _c('div', {
       staticClass: "btn-group pull-right"
     }, [_vm._m(0, true), _vm._v(" "), _c('ul', {
       staticClass: "dropdown-menu"
@@ -43311,7 +43316,31 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('div', {
     staticClass: "modal-content"
-  }, [_vm._m(1), _vm._v(" "), _c('div', {
+  }, [_c('div', {
+    staticClass: "modal-header"
+  }, [_vm._m(1), _vm._v(" "), _c('h4', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (!_vm.edit),
+      expression: "!edit"
+    }],
+    staticClass: "modal-title",
+    attrs: {
+      "id": "associationLabel"
+    }
+  }, [_vm._v("Create Association")]), _vm._v(" "), _c('h4', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.edit),
+      expression: "edit"
+    }],
+    staticClass: "modal-title",
+    attrs: {
+      "id": "associationLabel"
+    }
+  }, [_vm._v("Edit Association")])]), _vm._v(" "), _c('div', {
     staticClass: "modal-body"
   }, [_c('form', {
     attrs: {
@@ -43387,7 +43416,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "type": "submit"
     }
-  }, [_vm._v("Create")]), _vm._v(" "), _c('button', {
+  }, [_vm._v("Save")]), _vm._v(" "), _c('button', {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -43415,9 +43444,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "caret"
   })])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "modal-header"
-  }, [_c('button', {
+  return _c('button', {
     staticClass: "close",
     attrs: {
       "type": "button",
@@ -43428,12 +43455,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "aria-hidden": "true"
     }
-  }, [_vm._v("×")])]), _vm._v(" "), _c('h4', {
-    staticClass: "modal-title",
-    attrs: {
-      "id": "myModalLabel"
-    }
-  }, [_vm._v("Create Association")])])
+  }, [_vm._v("×")])])
 }]}
 module.exports.render._withStripped = true
 if (false) {
