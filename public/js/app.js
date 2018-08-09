@@ -43108,6 +43108,37 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -43134,6 +43165,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }).catch(function (error) {
                 console.log(error);
             });
+        },
+        clearAssociationFields: function clearAssociationFields() {
+            var self = this;
+            self.association.name = '';
+            self.association.code = '';
+            self.edit = false;
         },
         createAssociation: function createAssociation() {
             var self = this;
@@ -43218,7 +43255,65 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('h1', [_vm._v("Associations")]), _vm._v(" "), _c('form', {
+  return _c('div', [_c('h1', [_vm._v("Associations")]), _vm._v(" "), _c('button', {
+    staticClass: "btn btn-primary",
+    attrs: {
+      "data-toggle": "modal",
+      "data-target": "#association"
+    },
+    on: {
+      "click": function($event) {
+        _vm.clearAssociationFields()
+      }
+    }
+  }, [_vm._v("\n        Create\n    ")]), _vm._v(" "), _c('hr'), _vm._v(" "), _c('ul', {
+    staticClass: "list-group"
+  }, _vm._l((_vm.list), function(association) {
+    return _c('li', {
+      staticClass: "list-group-item"
+    }, [_vm._v("\n            " + _vm._s(association.name) + " (" + _vm._s(association.code) + ")\n            "), _c('div', {
+      staticClass: "btn-group pull-right"
+    }, [_vm._m(0, true), _vm._v(" "), _c('ul', {
+      staticClass: "dropdown-menu"
+    }, [_c('li', [_c('a', {
+      attrs: {
+        "data-toggle": "modal",
+        "data-target": "#association",
+        "href": "#"
+      },
+      on: {
+        "click": function($event) {
+          _vm.showAssociation(association.id)
+        }
+      }
+    }, [_vm._v("\n                            Edit\n                        ")])]), _vm._v(" "), _c('li', [_c('a', {
+      attrs: {
+        "href": "#"
+      },
+      on: {
+        "click": function($event) {
+          _vm.deleteAssociation(association.id)
+        }
+      }
+    }, [_vm._v("\n                            Delete\n                        ")])])])])])
+  })), _vm._v(" "), _c('div', {
+    staticClass: "modal fade",
+    attrs: {
+      "id": "association",
+      "tabindex": "-1",
+      "role": "dialog",
+      "aria-labelledby": "associationLabel"
+    }
+  }, [_c('div', {
+    staticClass: "modal-dialog",
+    attrs: {
+      "role": "document"
+    }
+  }, [_c('div', {
+    staticClass: "modal-content"
+  }, [_vm._m(1), _vm._v(" "), _c('div', {
+    staticClass: "modal-body"
+  }, [_c('form', {
     attrs: {
       "action": "#"
     },
@@ -43306,28 +43401,40 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "type": "submit"
     }
-  }, [_vm._v("Update")])])]), _vm._v(" "), _c('ul', {
-    staticClass: "list-group"
-  }, _vm._l((_vm.list), function(association) {
-    return _c('li', {
-      staticClass: "list-group-item"
-    }, [_vm._v("\n            " + _vm._s(association.name) + " (" + _vm._s(association.code) + ")\n            "), _c('button', {
-      staticClass: "btn btn-default btn-xs",
-      on: {
-        "click": function($event) {
-          _vm.showAssociation(association.id)
-        }
-      }
-    }, [_vm._v("Edit")]), _vm._v(" "), _c('button', {
-      staticClass: "btn btn-danger btn-xs",
-      on: {
-        "click": function($event) {
-          _vm.deleteAssociation(association.id)
-        }
-      }
-    }, [_vm._v("Delete")])])
-  }))])
-},staticRenderFns: []}
+  }, [_vm._v("Update")])])])])])])])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('button', {
+    staticClass: "btn btn-default btn-xs dropdown-toggle",
+    attrs: {
+      "type": "button",
+      "data-toggle": "dropdown",
+      "aria-haspopup": "true",
+      "aria-expanded": "false"
+    }
+  }, [_c('span', {
+    staticClass: "caret"
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "modal-header"
+  }, [_c('button', {
+    staticClass: "close",
+    attrs: {
+      "type": "button",
+      "data-dismiss": "modal",
+      "aria-label": "Close"
+    }
+  }, [_c('span', {
+    attrs: {
+      "aria-hidden": "true"
+    }
+  }, [_vm._v("×")])]), _vm._v(" "), _c('h4', {
+    staticClass: "modal-title",
+    attrs: {
+      "id": "myModalLabel"
+    }
+  }, [_vm._v("Create Association")])])
+}]}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()

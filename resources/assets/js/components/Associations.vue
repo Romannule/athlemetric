@@ -1,27 +1,58 @@
 <template>
     <div>
         <h1>Associations</h1>
-        <form action="#" @submit.prevent="edit ? updateAssociation(association.id) : createAssociation()">
-            <div class="form-group">
-                <label>Name</label>
-                <input v-model="association.name" type="text" name="name" class="form-control" placeholder="ex. International Federation of Association Football">
-            </div>
-            <div class="form-group">
-                <label>Code</label>
-                <input v-model="association.code" type="text" name="code" class="form-control" placeholder="ex. FIFA, CAF">
-            </div>
-            <div class="form-group">
-                <button v-show="!edit" type="submit" class="btn btn-primary" style="width:100%">Create</button>
-                <button v-show="edit" type="submit" class="btn btn-primary" style="width:100%">Update</button>
-            </div>
-        </form>
+        <button @click="clearAssociationFields()" class="btn btn-primary" data-toggle="modal" data-target="#association">
+            Create
+        </button>
+        <hr>
         <ul class="list-group">
             <li class="list-group-item" v-for="association in list">
                 {{ association.name }} ({{ association.code }})
-                <button @click="showAssociation(association.id)" class="btn btn-default btn-xs">Edit</button>
-                <button @click="deleteAssociation(association.id)" class="btn btn-danger btn-xs">Delete</button>
+                <div class="btn-group pull-right">
+                    <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a @click="showAssociation(association.id)" data-toggle="modal" data-target="#association" href="#">
+                                Edit
+                            </a>
+                        </li>
+                        <li>
+                            <a @click="deleteAssociation(association.id)" href="#">
+                                Delete
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
         </ul>
+        <div class="modal fade" id="association" tabindex="-1" role="dialog" aria-labelledby="associationLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Create Association</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="#" @submit.prevent="edit ? updateAssociation(association.id) : createAssociation()">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input v-model="association.name" type="text" name="name" class="form-control" placeholder="ex. International Federation of Association Football">
+                            </div>
+                            <div class="form-group">
+                                <label>Code</label>
+                                <input v-model="association.code" type="text" name="code" class="form-control" placeholder="ex. FIFA, CAF">
+                            </div>
+                            <div class="form-group">
+                                <button v-show="!edit" type="submit" class="btn btn-primary" style="width:100%">Create</button>
+                                <button v-show="edit" type="submit" class="btn btn-primary" style="width:100%">Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -50,6 +81,12 @@
                     }).catch((error) => {
                         console.log(error);
                     });
+            },
+            clearAssociationFields: function() {
+                let self = this;
+                self.association.name = '';
+                self.association.code = '';
+                self.edit = false;
             },
             createAssociation: function() {
                 let self = this;
