@@ -6,7 +6,7 @@
         </button>
         <hr>
         <ul class="list-group">
-            <li class="list-group-item" v-for="association in list">
+            <li class="list-group-item" :key="association.id" v-for="association in list">
                 <a href="#">{{ association.name }} ({{ association.code }})</a>
                 <div class="btn-group pull-right">
                     <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

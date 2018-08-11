@@ -73,7 +73,7 @@
 "use strict";
 
 
-var bind = __webpack_require__(7);
+var bind = __webpack_require__(8);
 
 /*global toString:true*/
 
@@ -424,10 +424,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(3);
+    adapter = __webpack_require__(4);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(3);
+    adapter = __webpack_require__(4);
   }
   return adapter;
 }
@@ -498,10 +498,16 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
 
 /***/ }),
 /* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(12);
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -512,7 +518,7 @@ var settle = __webpack_require__(18);
 var buildURL = __webpack_require__(21);
 var parseHeaders = __webpack_require__(27);
 var isURLSameOrigin = __webpack_require__(25);
-var createError = __webpack_require__(6);
+var createError = __webpack_require__(7);
 var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(20);
 
 module.exports = function xhrAdapter(config) {
@@ -685,7 +691,7 @@ module.exports = function xhrAdapter(config) {
 
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -711,7 +717,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -723,7 +729,7 @@ module.exports = function isCancel(value) {
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -747,7 +753,7 @@ module.exports = function createError(message, config, code, response) {
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -765,7 +771,7 @@ module.exports = function bind(fn, thisArg) {
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -955,7 +961,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -975,25 +981,19 @@ window.Vue = __webpack_require__(39);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-var axios = __webpack_require__(11);
+var axios = __webpack_require__(3);
 
-Vue.component('associations', __webpack_require__(51));
+Vue.component('associations', __webpack_require__(36));
 
 var app = new Vue({
   el: '#app'
 });
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(12);
 
 /***/ }),
 /* 12 */
@@ -1003,7 +1003,7 @@ module.exports = __webpack_require__(12);
 
 
 var utils = __webpack_require__(0);
-var bind = __webpack_require__(7);
+var bind = __webpack_require__(8);
 var Axios = __webpack_require__(14);
 var defaults = __webpack_require__(2);
 
@@ -1038,9 +1038,9 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(4);
+axios.Cancel = __webpack_require__(5);
 axios.CancelToken = __webpack_require__(13);
-axios.isCancel = __webpack_require__(5);
+axios.isCancel = __webpack_require__(6);
 
 // Expose all/spread
 axios.all = function all(promises) {
@@ -1061,7 +1061,7 @@ module.exports.default = axios;
 "use strict";
 
 
-var Cancel = __webpack_require__(4);
+var Cancel = __webpack_require__(5);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -1278,7 +1278,7 @@ module.exports = InterceptorManager;
 
 var utils = __webpack_require__(0);
 var transformData = __webpack_require__(19);
-var isCancel = __webpack_require__(5);
+var isCancel = __webpack_require__(6);
 var defaults = __webpack_require__(2);
 
 /**
@@ -1388,7 +1388,7 @@ module.exports = function enhanceError(error, config, code, response) {
 "use strict";
 
 
-var createError = __webpack_require__(6);
+var createError = __webpack_require__(7);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -1831,7 +1831,146 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 29 */,
+/* 29 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            edit: false,
+            list: [],
+            association: {
+                id: '',
+                name: '',
+                code: ''
+            }
+        };
+    },
+    mounted: function mounted() {
+        this.fetchAssociationList();
+    },
+    methods: {
+        fetchAssociationList: function fetchAssociationList() {
+            var _this = this;
+
+            axios.get('api/associations').then(function (response) {
+                console.log(response.data);
+                _this.list = response.data;
+            }).catch(function (error) {
+                console.log(error);
+            });
+        },
+        clearAssociation: function clearAssociation() {
+            var self = this;
+            self.association.name = '';
+            self.association.code = '';
+            self.edit = false;
+        },
+        createAssociation: function createAssociation() {
+            var self = this;
+            var params = Object.assign({}, self.association);
+            axios.post('api/association/store', params).then(function () {
+                self.association.name = '';
+                self.association.code = '';
+                self.edit = false;
+                self.fetchAssociationList();
+            }).catch(function (error) {
+                console.log(error);
+            });
+        },
+        showAssociation: function showAssociation(id) {
+            var self = this;
+            axios.get('api/association/' + id).then(function (response) {
+                self.association.id = response.data.id;
+                self.association.name = response.data.name;
+                self.association.code = response.data.code;
+            });
+            self.edit = true;
+        },
+        updateAssociation: function updateAssociation(id) {
+            var self = this;
+            var params = Object.assign({}, self.association);
+            axios.patch('api/association/' + id, params).then(function () {
+                self.edit = true;
+                self.fetchAssociationList();
+            }).catch(function (error) {
+                console.log(error);
+            });
+        },
+        deleteAssociation: function deleteAssociation(id) {
+            var self = this;
+            axios.delete('api/association/' + id).then(function (response) {
+                self.fetchAssociationList();
+            }).catch(function (error) {
+                console.log(error);
+            });
+        }
+    }
+});
+
+/***/ }),
 /* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1856,7 +1995,7 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = __webpack_require__(11);
+window.axios = __webpack_require__(3);
 
 window.axios.defaults.headers.common['X-CSRF-TOKEN'] = window.Laravel.csrfToken;
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
@@ -31934,7 +32073,7 @@ return jQuery;
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(8)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(9)))
 
 /***/ }),
 /* 35 */
@@ -32007,7 +32146,40 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 36 */,
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(37)(
+  /* script */
+  __webpack_require__(29),
+  /* template */
+  __webpack_require__(38),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "C:\\xampp\\htdocs\\athlemetric\\resources\\assets\\js\\components\\Associations.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] Associations.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-0901abb8", Component.options)
+  } else {
+    hotAPI.reload("data-v-0901abb8", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
 /* 37 */
 /***/ (function(module, exports) {
 
@@ -32065,7 +32237,221 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 38 */,
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('h1', [_vm._v("Associations")]), _vm._v(" "), _c('button', {
+    staticClass: "btn btn-primary",
+    attrs: {
+      "data-toggle": "modal",
+      "data-target": "#association"
+    },
+    on: {
+      "click": function($event) {
+        _vm.clearAssociation()
+      }
+    }
+  }, [_vm._v("\n        Create\n    ")]), _vm._v(" "), _c('hr'), _vm._v(" "), _c('ul', {
+    staticClass: "list-group"
+  }, _vm._l((_vm.list), function(association) {
+    return _c('li', {
+      key: association.id,
+      staticClass: "list-group-item"
+    }, [_c('a', {
+      attrs: {
+        "href": "#"
+      }
+    }, [_vm._v(_vm._s(association.name) + " (" + _vm._s(association.code) + ")")]), _vm._v(" "), _c('div', {
+      staticClass: "btn-group pull-right"
+    }, [_vm._m(0, true), _vm._v(" "), _c('ul', {
+      staticClass: "dropdown-menu"
+    }, [_c('li', [_c('a', {
+      attrs: {
+        "data-toggle": "modal",
+        "data-target": "#association",
+        "href": "#"
+      },
+      on: {
+        "click": function($event) {
+          _vm.showAssociation(association.id)
+        }
+      }
+    }, [_vm._v("\n                            Edit\n                        ")])]), _vm._v(" "), _c('li', [_c('a', {
+      attrs: {
+        "href": "#"
+      },
+      on: {
+        "click": function($event) {
+          _vm.deleteAssociation(association.id)
+        }
+      }
+    }, [_vm._v("\n                            Delete\n                        ")])])])])])
+  })), _vm._v(" "), _c('div', {
+    staticClass: "modal fade",
+    attrs: {
+      "id": "association",
+      "tabindex": "-1",
+      "role": "dialog",
+      "aria-labelledby": "associationLabel"
+    }
+  }, [_c('div', {
+    staticClass: "modal-dialog",
+    attrs: {
+      "role": "document"
+    }
+  }, [_c('div', {
+    staticClass: "modal-content"
+  }, [_c('div', {
+    staticClass: "modal-header"
+  }, [_vm._m(1), _vm._v(" "), _c('h4', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (!_vm.edit),
+      expression: "!edit"
+    }],
+    staticClass: "modal-title",
+    attrs: {
+      "id": "associationLabel"
+    }
+  }, [_vm._v("Create Association")]), _vm._v(" "), _c('h4', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.edit),
+      expression: "edit"
+    }],
+    staticClass: "modal-title",
+    attrs: {
+      "id": "associationLabel"
+    }
+  }, [_vm._v("Edit Association")])]), _vm._v(" "), _c('div', {
+    staticClass: "modal-body"
+  }, [_c('form', {
+    attrs: {
+      "action": "#"
+    },
+    on: {
+      "submit": function($event) {
+        $event.preventDefault();
+        _vm.edit ? _vm.updateAssociation(_vm.association.id) : _vm.createAssociation()
+      }
+    }
+  }, [_c('div', {
+    staticClass: "form-group"
+  }, [_c('label', [_vm._v("Name")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.association.name),
+      expression: "association.name"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "name": "name",
+      "placeholder": "ex. International Federation of Association Football"
+    },
+    domProps: {
+      "value": (_vm.association.name)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.$set(_vm.association, "name", $event.target.value)
+      }
+    }
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('label', [_vm._v("Code")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.association.code),
+      expression: "association.code"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "name": "code",
+      "placeholder": "ex. FIFA, CAF"
+    },
+    domProps: {
+      "value": (_vm.association.code)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.$set(_vm.association, "code", $event.target.value)
+      }
+    }
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('button', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (!_vm.edit),
+      expression: "!edit"
+    }],
+    staticClass: "btn btn-primary",
+    staticStyle: {
+      "width": "100%"
+    },
+    attrs: {
+      "type": "submit"
+    }
+  }, [_vm._v("Save")]), _vm._v(" "), _c('button', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.edit),
+      expression: "edit"
+    }],
+    staticClass: "btn btn-primary",
+    staticStyle: {
+      "width": "100%"
+    },
+    attrs: {
+      "type": "submit"
+    }
+  }, [_vm._v("Update")])])])])])])])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('button', {
+    staticClass: "btn btn-default btn-xs dropdown-toggle",
+    attrs: {
+      "type": "button",
+      "data-toggle": "dropdown",
+      "aria-haspopup": "true",
+      "aria-expanded": "false"
+    }
+  }, [_c('span', {
+    staticClass: "caret"
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('button', {
+    staticClass: "close",
+    attrs: {
+      "type": "button",
+      "data-dismiss": "modal",
+      "aria-label": "Close"
+    }
+  }, [_c('span', {
+    attrs: {
+      "aria-hidden": "true"
+    }
+  }, [_vm._v("×")])])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-0901abb8", module.exports)
+  }
+}
+
+/***/ }),
 /* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -43063,405 +43449,9 @@ module.exports = function(module) {
 /* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(9);
-module.exports = __webpack_require__(10);
+__webpack_require__(10);
+module.exports = __webpack_require__(11);
 
-
-/***/ }),
-/* 42 */,
-/* 43 */,
-/* 44 */,
-/* 45 */,
-/* 46 */,
-/* 47 */,
-/* 48 */,
-/* 49 */,
-/* 50 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            edit: false,
-            list: [],
-            association: {
-                id: '',
-                name: '',
-                code: ''
-            }
-        };
-    },
-    mounted: function mounted() {
-        this.fetchAssociationList();
-    },
-    methods: {
-        fetchAssociationList: function fetchAssociationList() {
-            var _this = this;
-
-            axios.get('api/associations').then(function (response) {
-                console.log(response.data);
-                _this.list = response.data;
-            }).catch(function (error) {
-                console.log(error);
-            });
-        },
-        clearAssociation: function clearAssociation() {
-            var self = this;
-            self.association.name = '';
-            self.association.code = '';
-            self.edit = false;
-        },
-        createAssociation: function createAssociation() {
-            var self = this;
-            var params = Object.assign({}, self.association);
-            axios.post('api/association/store', params).then(function () {
-                self.association.name = '';
-                self.association.code = '';
-                self.edit = false;
-                self.fetchAssociationList();
-            }).catch(function (error) {
-                console.log(error);
-            });
-        },
-        showAssociation: function showAssociation(id) {
-            var self = this;
-            axios.get('api/association/' + id).then(function (response) {
-                self.association.id = response.data.id;
-                self.association.name = response.data.name;
-                self.association.code = response.data.code;
-            });
-            self.edit = true;
-        },
-        updateAssociation: function updateAssociation(id) {
-            var self = this;
-            var params = Object.assign({}, self.association);
-            axios.patch('api/association/' + id, params).then(function () {
-                self.edit = true;
-                self.fetchAssociationList();
-            }).catch(function (error) {
-                console.log(error);
-            });
-        },
-        deleteAssociation: function deleteAssociation(id) {
-            var self = this;
-            axios.delete('api/association/' + id).then(function (response) {
-                self.fetchAssociationList();
-            }).catch(function (error) {
-                console.log(error);
-            });
-        }
-    }
-});
-
-/***/ }),
-/* 51 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Component = __webpack_require__(37)(
-  /* script */
-  __webpack_require__(50),
-  /* template */
-  __webpack_require__(52),
-  /* scopeId */
-  null,
-  /* cssModules */
-  null
-)
-Component.options.__file = "C:\\xampp\\htdocs\\athlemetric\\resources\\assets\\js\\components\\Associations.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] Associations.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-0901abb8", Component.options)
-  } else {
-    hotAPI.reload("data-v-0901abb8", Component.options)
-  }
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 52 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('h1', [_vm._v("Associations")]), _vm._v(" "), _c('button', {
-    staticClass: "btn btn-primary",
-    attrs: {
-      "data-toggle": "modal",
-      "data-target": "#association"
-    },
-    on: {
-      "click": function($event) {
-        _vm.clearAssociation()
-      }
-    }
-  }, [_vm._v("\n        Create\n    ")]), _vm._v(" "), _c('hr'), _vm._v(" "), _c('ul', {
-    staticClass: "list-group"
-  }, _vm._l((_vm.list), function(association) {
-    return _c('li', {
-      staticClass: "list-group-item"
-    }, [_c('a', {
-      attrs: {
-        "href": "#"
-      }
-    }, [_vm._v(_vm._s(association.name) + " (" + _vm._s(association.code) + ")")]), _vm._v(" "), _c('div', {
-      staticClass: "btn-group pull-right"
-    }, [_vm._m(0, true), _vm._v(" "), _c('ul', {
-      staticClass: "dropdown-menu"
-    }, [_c('li', [_c('a', {
-      attrs: {
-        "data-toggle": "modal",
-        "data-target": "#association",
-        "href": "#"
-      },
-      on: {
-        "click": function($event) {
-          _vm.showAssociation(association.id)
-        }
-      }
-    }, [_vm._v("\n                            Edit\n                        ")])]), _vm._v(" "), _c('li', [_c('a', {
-      attrs: {
-        "href": "#"
-      },
-      on: {
-        "click": function($event) {
-          _vm.deleteAssociation(association.id)
-        }
-      }
-    }, [_vm._v("\n                            Delete\n                        ")])])])])])
-  })), _vm._v(" "), _c('div', {
-    staticClass: "modal fade",
-    attrs: {
-      "id": "association",
-      "tabindex": "-1",
-      "role": "dialog",
-      "aria-labelledby": "associationLabel"
-    }
-  }, [_c('div', {
-    staticClass: "modal-dialog",
-    attrs: {
-      "role": "document"
-    }
-  }, [_c('div', {
-    staticClass: "modal-content"
-  }, [_c('div', {
-    staticClass: "modal-header"
-  }, [_vm._m(1), _vm._v(" "), _c('h4', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (!_vm.edit),
-      expression: "!edit"
-    }],
-    staticClass: "modal-title",
-    attrs: {
-      "id": "associationLabel"
-    }
-  }, [_vm._v("Create Association")]), _vm._v(" "), _c('h4', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.edit),
-      expression: "edit"
-    }],
-    staticClass: "modal-title",
-    attrs: {
-      "id": "associationLabel"
-    }
-  }, [_vm._v("Edit Association")])]), _vm._v(" "), _c('div', {
-    staticClass: "modal-body"
-  }, [_c('form', {
-    attrs: {
-      "action": "#"
-    },
-    on: {
-      "submit": function($event) {
-        $event.preventDefault();
-        _vm.edit ? _vm.updateAssociation(_vm.association.id) : _vm.createAssociation()
-      }
-    }
-  }, [_c('div', {
-    staticClass: "form-group"
-  }, [_c('label', [_vm._v("Name")]), _vm._v(" "), _c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.association.name),
-      expression: "association.name"
-    }],
-    staticClass: "form-control",
-    attrs: {
-      "type": "text",
-      "name": "name",
-      "placeholder": "ex. International Federation of Association Football"
-    },
-    domProps: {
-      "value": (_vm.association.name)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.$set(_vm.association, "name", $event.target.value)
-      }
-    }
-  })]), _vm._v(" "), _c('div', {
-    staticClass: "form-group"
-  }, [_c('label', [_vm._v("Code")]), _vm._v(" "), _c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.association.code),
-      expression: "association.code"
-    }],
-    staticClass: "form-control",
-    attrs: {
-      "type": "text",
-      "name": "code",
-      "placeholder": "ex. FIFA, CAF"
-    },
-    domProps: {
-      "value": (_vm.association.code)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.$set(_vm.association, "code", $event.target.value)
-      }
-    }
-  })]), _vm._v(" "), _c('div', {
-    staticClass: "form-group"
-  }, [_c('button', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (!_vm.edit),
-      expression: "!edit"
-    }],
-    staticClass: "btn btn-primary",
-    staticStyle: {
-      "width": "100%"
-    },
-    attrs: {
-      "type": "submit"
-    }
-  }, [_vm._v("Save")]), _vm._v(" "), _c('button', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.edit),
-      expression: "edit"
-    }],
-    staticClass: "btn btn-primary",
-    staticStyle: {
-      "width": "100%"
-    },
-    attrs: {
-      "type": "submit"
-    }
-  }, [_vm._v("Update")])])])])])])])])
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('button', {
-    staticClass: "btn btn-default btn-xs dropdown-toggle",
-    attrs: {
-      "type": "button",
-      "data-toggle": "dropdown",
-      "aria-haspopup": "true",
-      "aria-expanded": "false"
-    }
-  }, [_c('span', {
-    staticClass: "caret"
-  })])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('button', {
-    staticClass: "close",
-    attrs: {
-      "type": "button",
-      "data-dismiss": "modal",
-      "aria-label": "Close"
-    }
-  }, [_c('span', {
-    attrs: {
-      "aria-hidden": "true"
-    }
-  }, [_vm._v("×")])])
-}]}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-0901abb8", module.exports)
-  }
-}
 
 /***/ })
 /******/ ]);
